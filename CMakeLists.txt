@@ -19,6 +19,7 @@ include_directories(
     assimp/include
     imgui
     imgui/backends
+    stb
 )
 
 set(SOURCES
