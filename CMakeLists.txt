@@ -26,22 +26,16 @@ set(SOURCES
 )
 
 # Add executable
-add_executable(opengl-starter ${SOURCES})
+add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})
 
 # Link libraries
-target_link_libraries(opengl-starter
+target_link_libraries(${CMAKE_PROJECT_NAME}
     glfw
     glm
     assimp
     glad
     ${OPENGL_LIBRARIES}
 )
-
-# Copy shader files to build directory
-file(COPY shaders DESTINATION ${CMAKE_BINARY_DIR})
-
-# Copy assets directory to build directory
-file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
 
 # Add Dear ImGui
 add_library(imgui
@@ -54,4 +48,4 @@ add_library(imgui
 )
 
 target_include_directories(imgui PUBLIC imgui)
-target_link_libraries(opengl-starter imgui)
+target_link_libraries(${CMAKE_PROJECT_NAME} imgui)
